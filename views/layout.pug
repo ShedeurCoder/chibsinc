@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href='https://fonts.googleapis.com/css?family=Roboto')
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    header
+      nav
+        a(href="/") 
+          img.logo(src="/images/logo.PNG")
+        ul 
+          li.nav-link 
+            a(href="/") Home 
+          li.nav-link 
+            a(href="/all") All products 
+          li.nav-link 
+            a(href="/about") About
+        form(action="/results", method="post" class="searchForm")
+          input(type="text" name="productName" placeholder="Search products")
+          button(type="submit" class="btn=search") Search
+    block content
+    footer 
+      a(href="/") Home 
+      a(href="/all") All products 
+      a(href="/about") About

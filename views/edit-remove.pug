@@ -1,0 +1,7 @@
+extends layout 
+block content 
+    h1= title
+    form(action="" method="POST") 
+        label(for="product_name") Search for product by name: 
+        input(type="text" id="product_name" name="product_name") 
+        button.btn-small(type="submit") SEARCH 

@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= message
+  h2= error.status
+  if error.status == "404"
+    h3 SORRY! Thats a 404. Go back to the main page! 
+    a(href="/") Back to home 
+  if error.status != "404"
+    pre #{error.stack}

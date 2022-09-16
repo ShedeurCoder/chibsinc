@@ -1,0 +1,7 @@
+extends layout
+include mixins/_product 
+block content
+    h2=title 
+    each product in searchData 
+        .product_wrapper
+            +product(product)

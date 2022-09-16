@@ -1,0 +1,7 @@
+extends layout
+include mixins/_product_form
+block content
+    a(href="/admin")
+        button.btn-small(type="button") Back to admin 
+    h2= title
+    +productForm(product) 

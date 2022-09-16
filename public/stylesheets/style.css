@@ -1,0 +1,209 @@
+body {
+  margin: 0;
+  padding: 0 1rem;
+  background-color: aliceblue;
+}
+body * {
+  font-family: "Roboto";
+}
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1E1E1E;
+  color: #E7E7E7;
+}
+ul {
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  text-decoration: none;
+  color: gray;
+  font-size: 1.5rem;
+}
+nav a {
+  color: #E7E7E7;
+}
+a:hover {
+  text-decoration: underline;
+}
+nav form {
+  margin: 1%;
+}
+input {
+  padding: 0.3rem 0;
+  font-size: 1.2rem;
+  border: 0;
+  text-align: center;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+header button {
+  padding: 0.3rem;
+  font-size: 1.2rem;
+  border: rgb(1, 100, 1) solid 3px;
+  background-color: #1E1E1E;
+  cursor: pointer;
+  color: #E7E7E7;
+  border-radius: 5px;
+}
+header button:hover {
+  background-color: rgb(1, 100, 1);
+}
+img {
+  width: 100%;
+}
+.password-admin {
+  background: black;
+  color: green;
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.password-admin input, .password-admin button {
+  font-size: 2rem;
+  border-radius: 20px;
+  border: none;
+}
+.password-admin input {
+  width: fit-content;
+}
+.password-admin button {
+  padding: 0.5em;
+}
+.admin-button-container {
+  padding: 2%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.admin-button {
+  background-color: #1E1E1E;
+  margin: 2%;
+  padding: 1.3rem;
+  color: white;
+  border-radius: 10px;
+}
+.btn-small {
+  padding: 0.8em;
+  font-size: 1.2rem;
+  background-color: #1E1E1E;
+  color: #E7E7E7;
+  border: none;
+  border-radius: 10px;
+}
+button {
+  cursor: pointer;
+}
+.form_input {
+  margin: 1em 0;
+}
+.form_input input, textarea {
+  width: 70%;
+  text-align: left;
+}
+.form_input label {
+  display: inline-block;
+  width: 20%;
+}
+input[type="file"] {
+  font-size: 1rem;
+}
+textarea {
+  border: none;
+  border-radius: 5px;
+}
+.productForm {
+  background-color: #E7E7E7;
+  padding: 2%;
+}
+.product {
+  background-color: white;
+  margin: 0 0 1em 0;
+}
+.product-img img {
+  border: 1px black solid;
+  width: 100%;
+}
+.product-info {
+  padding: 1em;
+  text-align: center;
+}
+.product-link {
+  background-color: darkgreen;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+.product-link:hover {
+  background-color: rgb(1, 71, 1);
+}
+label {
+  font-size: 1.3rem;
+}
+.short-intro {
+  background-color: aquamarine;
+  padding: 1em;
+}
+p {
+  font-size: 1.2rem;
+}
+footer {
+  background-color: #1E1E1E;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 2%;
+}
+footer a  {
+  color: #E7E7E7;
+  margin: 1%;
+}
+.fa.fa-star.checked {
+  color: orange
+}
+@media only screen and (min-width: 300px) {
+  nav img {
+    width: 300px;
+  }
+}
+@media only screen and (min-width: 500px) {
+  .admin-button-container {
+    flex-direction: row;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  nav {
+    flex-direction: row;
+  }
+  nav a {
+    flex: 1;
+  }
+  nav ul {
+    flex: 2;
+    text-align: right;
+    margin-right: 1em;
+  }
+  input {
+    width: 200px;
+  }
+  .product-img {
+    width: 45%;
+    margin: 1em;
+    display: inline-block;
+  }
+  .product-info {
+    width: 45%;
+    padding: 0 1em;
+    text-align: left;
+    display: inline-block;
+  }
+}

@@ -1,0 +1,24 @@
+mixin productForm(product={})
+    form.productForm(action="" method="POST" enctype='multipart/form-data')
+        .form_input 
+            label(for="product_name") Product name
+            input#product_name(type="text" name="product_name" required value=product.product_name)
+        .form_input 
+            label(for="product_description") Product description: 
+            textarea#product_description(name="product_description" cols="30", rows="10" required)=product.product_description 
+        .form_input 
+            label(for="link") Link: 
+            input#link(type="url" name="link" required value=product.link)
+        .form_input 
+            label(for="price") Price:
+            input#price(type="number" name="price" required value=product.price)
+        .form_input 
+            label(for="image") Image: 
+            input#image(type="file" name="image") 
+        .form_input 
+            label(for="available") Available: 
+            input#available(type="radio", name="available" value="true" checked)
+            label(for="unavailable") Unavailable: 
+            input#unavailable(type="radio", name="available" value="false")
+        .form_input 
+            button.btn-small(type="submit") CONFIRM

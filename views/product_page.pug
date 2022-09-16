@@ -1,0 +1,88 @@
+extends layout 
+include mixins/_product 
+block content 
+
+    if !url.startsWith("/admin")
+        //- calculate star rating 
+        -var numberOfRatings = 0;
+        -var oneStar = 0;
+        -var twoStar = 0;
+        -var threeStar = 0;
+        -var fourStar = 0;
+        -var fiveStar = 0;
+        each review in allRatings 
+            -numberOfRatings++;
+            if review.rating == 1
+                -oneStar++;
+            if review.rating == 2
+                -twoStar++;
+            if review.rating == 3
+                -threeStar++;
+            if review.rating == 4
+                -fourStar++;
+            if review.rating == 5
+                -fiveStar++;
+        -var ar = Math.round((1 * oneStar + 2 * twoStar + 3 * threeStar + 4 * fourStar + 5 * fiveStar) / numberOfRatings);
+    
+    +product(product, ar)
+
+    
+    if !url.startsWith("/admin")
+
+        form(action="" method="POST")
+            h2 Create a review
+            input(type="hidden", name="product_name" value=product.product_name)
+            .form_input
+                label(for="reviewer_name") Full name 
+                input#reviewer_name(type="text", name="reviewer_name" required)
+            .form_input 
+                label(for="rating") Rating (0-5 stars only) 
+                input#rating(type="number", name="rating" min="1" max="5" required)
+            .form_input
+                label(for="message") Message (optional)
+                textarea#message(name="message", cols="30", rows="10") 
+            .form_input 
+                button.btn-small(type="submit") Submit
+        h2 Ratings 
+            if url != `/all/${product.product_name.replaceAll(' ', "_")}/ratings`
+                a(href=`/all/${product.product_name.replaceAll(" ", "_")}/ratings`) (see all)
+        if numberOfRatings == 0
+            h3 No reviews yet. Try making one
+        each rating in ratings 
+            .rating-card 
+                - const stars = rating.rating 
+                h3= rating.reviewer_name 
+                    span &nbsp;
+                    //- I KNOW THERE IS A MORE EFFICIENT WAY OF DOING THIS BUT I DONT CARE STFU
+                    if stars == 1
+                        span.fa.fa-star.checked
+                        span.fa.fa-star
+                        span.fa.fa-star
+                        span.fa.fa-star
+                        span.fa.fa-star
+                    if stars == 2
+                        span.fa.fa-star.checked
+                        span.fa.fa-star.checked
+                        span.fa.fa-star
+                        span.fa.fa-star
+                        span.fa.fa-star
+                    if stars == 3
+                        span.fa.fa-star.checked
+                        span.fa.fa-star.checked
+                        span.fa.fa-star.checked
+                        span.fa.fa-star
+                        span.fa.fa-star
+                    if stars == 4
+                        span.fa.fa-star.checked
+                        span.fa.fa-star.checked
+                        span.fa.fa-star.checked
+                        span.fa.fa-star.checked
+                        span.fa.fa-star
+                    if stars == 5
+                        span.fa.fa-star.checked
+                        span.fa.fa-star.checked
+                        span.fa.fa-star.checked
+                        span.fa.fa-star.checked
+                        span.fa.fa-star.checked
+                p=rating.message
+                hr

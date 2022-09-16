@@ -1,0 +1,18 @@
+extends layout
+include mixins/_product
+include mixins/_about
+block content
+  .outer_wrapper 
+    .product_wrapper 
+      h2 Products for you 
+        a(href="/all") (see all)
+      ul 
+        each product in products
+          +product(product)
+    .short-intro
+      +about()
+    .contact 
+      h2 Contact us 
+      span Email: contact@chibs.com &middot;
+      span Phone: +69 420 082 985 &middot;
+      span Mailing: 1 Chibs Ave, Cebu City, Philippines 6000

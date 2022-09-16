@@ -1,0 +1,65 @@
+mixin product(product, rating)
+    .product 
+        if url.startsWith('/admin/edit')
+            br
+            a.btn-small(href=`/admin/edit/${product.product_name.replaceAll(" ", "_")}`) Edit product
+            br
+            br
+        if url.startsWith('/admin/remove')
+            br
+            a.btn-small(href=`/admin/remove/${product.product_name.replaceAll(" ", "_")}`) Remove product
+            br
+            br
+        .product-img 
+            a(href=`/all/${product.product_name.replaceAll(" ", "_")}`) 
+                img(src=`https://res.cloudinary.com/dmftho0cx/image/upload/${product.image}`)
+        .product-info 
+            a(href=`/all/${product.product_name.replaceAll(" ", "_")}`)
+                h3= product.product_name 
+            hr
+            if url.startsWith(`/all/${product.product_name.replaceAll(" ", "_")}`) || url.startsWith('/admin/')
+                p=product.product_description 
+                hr
+                if !url.startsWith('/admin')
+                    h3
+                        if rating == 0
+                            span.fa.fa-star.checked
+                            span.fa.fa-star
+                            span.fa.fa-star
+                            span.fa.fa-star
+                            span.fa.fa-star
+                        if rating == 1
+                            span.fa.fa-star.checked
+                            span.fa.fa-star
+                            span.fa.fa-star
+                            span.fa.fa-star
+                            span.fa.fa-star
+                        else if rating == 2
+                            span.fa.fa-star.checked
+                            span.fa.fa-star.checked
+                            span.fa.fa-star
+                            span.fa.fa-star
+                            span.fa.fa-star
+                        else if rating == 3
+                            span.fa.fa-star.checked
+                            span.fa.fa-star.checked
+                            span.fa.fa-star.checked
+                            span.fa.fa-star
+                            span.fa.fa-star
+                        else if rating == 4
+                            span.fa.fa-star.checked
+                            span.fa.fa-star.checked
+                            span.fa.fa-star.checked
+                            span.fa.fa-star.checked
+                            span.fa.fa-star
+                        else if rating == 5
+                            span.fa.fa-star.checked
+                            span.fa.fa-star.checked
+                            span.fa.fa-star.checked
+                            span.fa.fa-star.checked
+                            span.fa.fa-star.checked
+                        else 
+                            span There are no ratings
+            p
+                a.product-link(href=`${product.link}` target="_blank") Get it now 
+            p=`Price: $${product.price}`
